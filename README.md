@@ -9,42 +9,27 @@ The CIFAR-10 dataset contains 60,000 32x32 color images, evenly distributed acro
 ## Architecture
 The final model is a Sequential CNN built with TensorFlow/Keras. The architecture consists of two convolutional blocks for feature extraction, followed by a powerful classifier head with a bottleneck layer to control overfitting.
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
-┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
-│ sequential_50 (Sequential)           │ (None, 32, 32, 3)           │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_65 (Conv2D)                   │ (None, 30, 30, 32)          │             896 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_62 (MaxPooling2D)      │ (None, 15, 15, 32)          │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dropout_80 (Dropout)                 │ (None, 15, 15, 32)          │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_66 (Conv2D)                   │ (None, 13, 13, 64)          │          18,496 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_63 (MaxPooling2D)      │ (None, 6, 6, 64)            │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dropout_81 (Dropout)                 │ (None, 6, 6, 64)            │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_67 (Conv2D)                   │ (None, 4, 4, 32)            │          18,464 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_64 (MaxPooling2D)      │ (None, 2, 2, 32)            │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dropout_82 (Dropout)                 │ (None, 2, 2, 32)            │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ flatten_21 (Flatten)                 │ (None, 128)                 │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_63 (Dense)                     │ (None, 256)                 │          33,024 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dropout_83 (Dropout)                 │ (None, 256)                 │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_64 (Dense)                     │ (None, 32)                  │           8,224 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_65 (Dense)                     │ (None, 10)                  │             330 │
-└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
- Total params: 79,434 (310.29 KB)
- Trainable params: 79,434 (310.29 KB)
- Non-trainable params: 0 (0.00 B)
+| Layer (type) | Output Shape | Param # |
+| :--- | :--- | :--- |
+| sequential_50 (Sequential) | (None, 32, 32, 3) | 0 |
+| conv2d_65 (Conv2D) | (None, 30, 30, 32) | 896 |
+| max_pooling2d_62 (MaxPooling2D) | (None, 15, 15, 32) | 0 |
+| dropout_80 (Dropout) | (None, 15, 15, 32) | 0 |
+| conv2d_66 (Conv2D) | (None, 13, 13, 64) | 18,496 |
+| max_pooling2d_63 (MaxPooling2D) | (None, 6, 6, 64) | 0 |
+| dropout_81 (Dropout) | (None, 6, 6, 64) | 0 |
+| conv2d_67 (Conv2D) | (None, 4, 4, 32) | 18,464 |
+| max_pooling2d_64 (MaxPooling2D) | (None, 2, 2, 32) | 0 |
+| dropout_82 (Dropout) | (None, 2, 2, 32) | 0 |
+| flatten_21 (Flatten) | (None, 128) | 0 |
+| dense_63 (Dense) | (None, 256) | 33,024 |
+| dropout_83 (Dropout) | (None, 256) | 0 |
+| dense_64 (Dense) | (None, 32) | 8,224 |
+| dense_65 (Dense) | (None, 10) | 330 |
+
+**Total params:** 79,434 (310.29 KB)
+**Trainable params:** 79,434 (310.29 KB)
+**Non-trainable params:** 0 (0.00 B)
 
 
 ## Process
@@ -75,3 +60,4 @@ A key insight from this project is the high computational cost of tuning. A pote
 - TensorFlow / Keras
 - NumPy
 - Matplotlib
+- Pandas
